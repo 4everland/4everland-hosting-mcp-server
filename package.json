@@ -1,10 +1,11 @@
 {
-  "name": "4everhosting-mcpserver",
+  "name": "@4everland/4ever-mcpserver",
   "version": "0.1.0",
   "description": "4EVERLAND Hosting MCP Server Tool",
   "scripts": {
     "build": "tsc",
-    "serve": "tsc && node build/server.js"
+    "serve": "node build/server.js",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "4ever",
@@ -25,6 +26,14 @@
   "files": [
     "build"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/furyGo/4everland-hosting-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/furyGo/4everland-hosting-mcp-server/issues"
+  },
+  "homepage": "https://github.com/furyGo/4everland-hosting-mcp-server#readme",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1",
     "archiver": "^7.0.1",

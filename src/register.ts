@@ -10,8 +10,8 @@ export interface IRegister {
 
 export const register = ({server}: IRegister) => {
     server.tool(
-        "deploy_code",
-        "Deploy code to 4everland",
+        "deploy_site",
+        "Deploy site to 4EVERLAND hosting",
         {
             code_files: z.record(z.string()).describe("Map of file paths to their content"),
             project_name: z.string().describe("Name of the project")

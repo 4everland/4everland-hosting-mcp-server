@@ -2,10 +2,10 @@
 
 A Model Context Protocol (MCP) server tool for deploying code to 4EVERLAND's IPFS hosting service.
 
-## Installation
+## Usage
 
 ```bash
-npm install 4everhosting-mcpserver
+npx @4everland/4ever-mcpserver@latest serve 
 ```
 
 ## Requirements
@@ -22,28 +22,30 @@ export TOKEN=your_4everland_api_token
 export API_URL=https://cli-api.4everland.org  # Default API URL
 ```
 
-## Usage
+## Claudee Desktop configuration
 
-After installation, you can run the server:
-
-```bash
-4everhosting-mcpserver
+```json
+{
+  "mcpServers": {
+    "4ever-mcpserver": {
+      "command": "npx",
+      "args": [
+        "@4everland/4ever-mcpserver@latest",
+        "serve"
+      ],
+      "env":{
+        "TOKEN":"your-4ever-hosting-auth-token"
+      }
+    }
+  }
+}
 ```
-
-Or use it in your own MCP client implementation by connecting to the server.
-
-## Features
-
-- Deploy code directly to 4EVERLAND IPFS hosting
-- Automatically packages files into a zip archive
-- Creates new projects on 4EVERLAND
-- Returns deployment URLs
 
 ## API Reference
 
 This server implements an MCP tool:
 
-### `deploy_code`
+### `deploy_site`
 
 Deploys code to 4EVERLAND hosting.
 
