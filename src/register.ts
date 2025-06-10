@@ -14,15 +14,16 @@ export const register = ({server}: IRegister) => {
         "Deploy site to 4EVERLAND hosting",
         {
             code_files: z.record(z.string()).describe("Map of file paths to their content"),
-            project_name: z.string().describe("Name of the project")
+            project_name: z.string().regex(/^[a-zA-Z0-9_][-a-zA-Z0-9_]*[a-zA-Z0-9_]$|^[a-zA-Z0-9_]$/).describe("Name of the project (alphanumeric, underscore, and hyphen; cannot start or end with hyphen)"),
+            project_id: z.string().optional().describe("Optional project ID to deploy to. If not provided, a new project will be created.")
         },
-        async ({code_files, project_name}, extra) => {
+        async ({code_files, project_name, project_id}, extra) => {
             try {
                 const tempDir = await createProjectStructure(project_name, code_files);
                 const zipContent = await createZipFromDirectory(path.join(tempDir, 'dist'));
 
-                const projectId = await createProject(project_name);
-                const deploymentUrl = await deployProject(projectId, zipContent);
+                project_id = project_id || await createProject(project_name);
+                const deploymentUrl = await deployProject(project_id, zipContent);
 
                 // Cleanup temp directory
                 await fs.promises.rm(tempDir, {recursive: true, force: true});
@@ -35,6 +36,7 @@ export const register = ({server}: IRegister) => {
                         }
                     ],
                     deploymentUrl,
+                    project_id: project_id,
                     status: "success"
                 };
             } catch (error) {
