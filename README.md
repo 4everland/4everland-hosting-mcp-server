@@ -22,7 +22,7 @@ export TOKEN=your_4everland_api_token
 export API_URL=https://cli-api.4everland.org  # Default API URL
 ```
 
-## Claudee Desktop configuration
+## Claude Desktop configuration
 
 ```json
 {

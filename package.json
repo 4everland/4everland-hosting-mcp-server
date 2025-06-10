@@ -28,12 +28,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/furyGo/4everland-hosting-mcp-server.git"
+    "url": "git+https://github.com/4everland/4everland-hosting-mcp-server.git"
   },
   "bugs": {
-    "url": "https://github.com/furyGo/4everland-hosting-mcp-server/issues"
+    "url": "https://github.com/4everland/4everland-hosting-mcp-server/issues"
   },
-  "homepage": "https://github.com/furyGo/4everland-hosting-mcp-server#readme",
+  "homepage": "https://github.com/4everland/4everland-hosting-mcp-server#readme",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1",
     "archiver": "^7.0.1",
