@@ -24,7 +24,7 @@ export const register = ({server}: IRegister) => {
                 const zipContent = await createZipFromDirectory(path.join(tempDir, 'dist'));
 
                 project_id = project_id || await createProject(project_name, platform);
-                const deploymentUrl = await deployProject(project_id, zipContent);
+                const deploy_info = await deployProject(project_id, zipContent);
 
                 // Cleanup temp directory
                 await fs.promises.rm(tempDir, {recursive: true, force: true});
@@ -33,10 +33,10 @@ export const register = ({server}: IRegister) => {
                     content: [
                         {
                             type: "text",
-                            text: `Successfully deployed project to ${deploymentUrl}`
+                            text: `Project deployed successfully `
                         }
                     ],
-                    deploymentUrl,
+                    deploy_info,
                     project_id: project_id,
                     status: "success"
                 };

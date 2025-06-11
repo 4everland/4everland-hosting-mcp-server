@@ -115,7 +115,7 @@ export async function deployProject(projectId: string, zipContent: Buffer): Prom
         });
 
         if (response.data.code === SUCCESS_CODE) {
-            return response.data.content.domainList.toString();
+            return response.data.content;
         }
 
         throw new Error(`Failed to deploy project: ${JSON.stringify(response.data)}`);
