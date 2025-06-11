@@ -57,7 +57,7 @@ export async function createZipFromDirectory(directory: string): Promise<Buffer>
     });
 }
 
-export async function createProject(name: string): Promise<string> {
+export async function createProject(name: string, platform: string): Promise<string> {
     const token = ENV_TOKEN_VALUE;
     const apiBaseUrl = ENV_API_URL_VALUE;
 
@@ -68,7 +68,7 @@ export async function createProject(name: string): Promise<string> {
     const formData = new FormData();
     formData.append('name', name);
     formData.append('mode', API_MODE);
-    formData.append('platform', API_PLATFORM);
+    formData.append('platform', platform);
     formData.append('deployType', API_DEPLOY_TYPE);
 
     try {

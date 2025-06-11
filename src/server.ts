@@ -7,7 +7,7 @@ import {register} from "./register.js";
 // Create server instance
 const server: McpServer = new McpServer({
     name: "4EVERLAND Hosting",
-    version: "0.1.0",
+    version: "0.1.2",
     capabilities: {
         resources: {},
         tools: {},
